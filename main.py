@@ -1,5 +1,4 @@
 from dotenv import load_dotenv
-load_dotenv()
 import argparse
 import requests
 import os
@@ -10,13 +9,12 @@ import sys
 secret_token = os.getenv("TOKEN")
 token = {"Authorization": secret_token }
 url = "https://api-ssl.bitly.com/v4/bitlinks"
-users_link = {"long_url": "", "title": "new"}
 url_for_sum = "https://api-ssl.bitly.com/v4/bitlinks/{}/clicks/summary"
 period_for_calc_clicks = {"unit":"day", "units":""}
 
 def createParser():
     parser = argparse.ArgumentParser()
-    parser.add_argument ('urls', nargs='+')
+    parser.add_argument('urls', nargs='+')
     return parser
     
 def create_short_link(url, token, users_link):
@@ -40,6 +38,8 @@ def calculating_of_clicks_to_link(url_for_sum, token, users_link):
         return total_clicks
 
 if __name__ == '__main__': 
+    load_dotenv()
+    users_link = {"long_url": "", "title": "new"}
     entered_links = createParser()
     urls_space = entered_links.parse_args(sys.argv[1:])
     for entered_urls in urls_space.urls:
