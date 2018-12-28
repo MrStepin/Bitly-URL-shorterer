@@ -1,5 +1,5 @@
-Bitly URL shorterer
-
+h1 Bitly URL shorterer
+=====================
 Description how to work this script:
 This script is transfer your URL to Bitly URL.
 If you enter Bitly URL, script is output quantity of click to this URL during all time.
@@ -9,4 +9,5 @@ pip install -r requirements.txt
 
 How to use this script: 
 Execute in CMD this script with URLS as arguments
-For example: main.py https://www.google.com/
+For example:
+main.py https://www.google.com/
