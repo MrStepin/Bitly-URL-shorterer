@@ -5,9 +5,6 @@ import os
 from urllib.parse import urlparse
 import sys
 
-
-secret_token = os.getenv("TOKEN")
-token = {"Authorization": secret_token }
 url = "https://api-ssl.bitly.com/v4/bitlinks"
 url_for_sum = "https://api-ssl.bitly.com/v4/bitlinks/{}/clicks/summary"
 period_for_calc_clicks = {"unit":"day", "units":""}
@@ -39,6 +36,8 @@ def calculating_of_clicks_to_link(url_for_sum, token, users_link):
 
 if __name__ == '__main__': 
     load_dotenv()
+    secret_token = os.getenv("TOKEN")
+    token = {"Authorization": secret_token }
     users_link = {"long_url": "", "title": "new"}
     entered_links = createParser()
     urls_space = entered_links.parse_args(sys.argv[1:])
@@ -59,6 +58,3 @@ if __name__ == '__main__':
             else:
                 print("Короткая ссылка: {}".format(link_bitly))
     
-    
-
- 
